@@ -11,11 +11,9 @@ MAINTAINER Camptocamp
 
 # Install additional python packages if needed
 COPY ./*requirements.txt /opt/odoo/
-RUN cd /opt/odoo && find . -maxdepth 1 -name "*requirements.txt" ! -name src_requirements.txt ! -name base_requirements.txt -exec pip install -r {} \;
+RUN cd /opt/odoo && find . -maxdepth 1 -name "*requirements.txt" ! -name src_requirements.txt ! -name base_requirements.txt -exec pip install --extra-index-url=https://wheelhouse.odoo-community.org/oca-simple -r {} \;
 
-ENV ADDONS_PATH="/opt/odoo/external-src/server-tools, \
-  /opt/odoo/external-src/web, \
-  /opt/odoo/src/addons, \
+ENV ADDONS_PATH="/opt/odoo/src/addons, \
   /opt/odoo/local-src," \
   LIMIT_TIME_CPU=86400 \
   LIMIT_TIME_REAL=86400 \
