@@ -1,2 +1,5 @@
+# odoo-autodiscover is necessary to let Odoo play nice with namespace packages (as are pip installed odoo modules)
+odoo-autodiscover>=2.0.0b1
+
 # OCA modules from wheelhouse
 odoo10-addon-disable-odoo-online
